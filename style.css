@@ -1,0 +1,160 @@
+:root {
+  --fundo: #f5f7fa;
+  --texto: #222222;
+  --texto-claro: #555555;
+  --cor-principal: #0b5ed7;
+  --cor-principal-escura: #084298;
+  --branco: #ffffff;
+  --borda: #d0d7e2;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--fundo);
+  color: var(--texto);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+}
+
+header,
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+header {
+  padding-top: 30px;
+  padding-bottom: 10px;
+}
+
+header h1 {
+  margin: 0 0 8px 0;
+  color: var(--cor-principal);
+}
+
+header p {
+  margin: 0;
+  color: var(--texto-claro);
+}
+
+main {
+  padding-bottom: 40px;
+}
+
+.controles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 16px 0;
+}
+
+#filtro {
+  flex: 1 1 200px;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+}
+
+#btn-carregar {
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--branco);
+  background: var(--cor-principal);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#btn-carregar:hover {
+  background: var(--cor-principal-escura);
+}
+
+#btn-carregar:disabled {
+  background: #999999;
+  cursor: not-allowed;
+}
+
+#btn-carregar:focus-visible,
+#filtro:focus-visible {
+  outline: 3px solid #ff8800;
+  outline-offset: 2px;
+}
+
+#mensagem {
+  margin: 0 0 16px 0;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+#mensagem:empty {
+  display: none;
+}
+
+#mensagem.info {
+  background: #d1e7dd;
+  color: #0f5132;
+}
+
+#mensagem.carregando {
+  background: #cfe2ff;
+  color: #084298;
+}
+
+#mensagem.erro {
+  background: #f8d7da;
+  color: #842029;
+}
+
+#mensagem.aviso {
+  background: #fff3cd;
+  color: #664d03;
+}
+
+#lista-posts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+  gap: 16px;
+}
+
+.cartao {
+  padding: 18px;
+  background: var(--branco);
+  border: 1px solid var(--borda);
+  border-radius: 10px;
+  overflow-wrap: anywhere;
+}
+
+.cartao-id {
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--cor-principal);
+}
+
+.cartao h2 {
+  margin: 8px 0;
+  font-size: 1.1rem;
+}
+
+.cartao p {
+  margin: 0;
+  color: var(--texto-claro);
+}
+
+@media (max-width: 480px) {
+  .controles {
+    flex-direction: column;
+  }
+
+  #btn-carregar {
+    width: 100%;
+  }
+}
